@@ -1,0 +1,487 @@
+/*
+	HTML5 Reset :: style.css
+	----------------------------------------------------------
+	We have learned much from/been inspired by/taken code where offered from:
+	
+	Eric Meyer					:: http://meyerweb.com
+	HTML5 Doctor				:: http://html5doctor.com
+	and the HTML5 Boilerplate	:: http://html5boilerplate.com
+	
+-------------------------------------------------------------------------------*/
+
+/* Let's default this puppy out
+-------------------------------------------------------------------------------*/
+
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font-weight: normal;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+article, aside, figure, footer, header, nav, section, details, summary {display: block;}
+
+/* Handle box-sizing while better addressing child elements: 
+   http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+html {
+	box-sizing: border-box;
+}
+
+*, 
+*:before, 
+*:after {
+	box-sizing: inherit;
+}
+
+/* consider resetting the default cursor: https://gist.github.com/murtaugh/5247154 */
+
+/* Responsive images and other embedded objects
+   Note: keeping IMG here will cause problems if you're using foreground images as sprites.
+   If this default setting for images is causing issues, you might want to replace it with a .responsive class instead. */
+img,
+object,
+embed {max-width: 100%;}
+
+/* force a vertical scrollbar to prevent a jumpy page */
+html {overflow-y: scroll;}
+
+/* we use a lot of ULs that aren't bulleted. 
+	don't forget to restore the bullets within content. */
+ul {list-style: none;}
+
+blockquote, q {quotes: none;}
+
+blockquote:before, 
+blockquote:after, 
+q:before, 
+q:after {content: ''; content: none;}
+
+a {margin: 0; padding: 0; font-size: 100%; vertical-align: baseline; background: transparent;}
+
+del {text-decoration: line-through;}
+
+abbr[title], dfn[title] {border-bottom: 1px dotted #000; cursor: help;}
+
+/* tables still need cellspacing="0" in the markup */
+table {border-collapse: collapse; border-spacing: 0;}
+th {font-weight: bold; vertical-align: bottom;}
+td {font-weight: normal; vertical-align: top;}
+
+hr {display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0;}
+
+input, select {vertical-align: middle;}
+
+pre {
+    white-space: pre; /* CSS2 */
+    white-space: pre-wrap; /* CSS 2.1 */
+    white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+    word-wrap: break-word; /* IE */
+}
+
+input[type="radio"] {vertical-align: text-bottom;}
+input[type="checkbox"] {vertical-align: bottom;}
+.ie7 input[type="checkbox"] {vertical-align: baseline;}
+.ie6 input {vertical-align: text-bottom;}
+
+select, input, textarea {font: 99% sans-serif;}
+
+table {font-size: inherit; font: 100%;}
+
+small {font-size: 85%;}
+
+strong {font-weight: bold;}
+
+td, td img {vertical-align: top;} 
+
+/* Make sure sup and sub don't mess with your line-heights http://gist.github.com/413930 */
+sub, sup {font-size: 75%; line-height: 0; position: relative;}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+
+/* standardize any monospaced elements */
+pre, code, kbd, samp {font-family: monospace, sans-serif;}
+
+/* hand cursor on clickable elements */
+.clickable,
+label, 
+input[type=button], 
+input[type=submit], 
+input[type=file], 
+button {cursor: pointer;}
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea {margin: 0;}
+
+/* make buttons play nice in IE */
+button,
+input[type=button] {width: auto; overflow: visible;}
+ 
+/* scale images in IE7 more attractively */
+.ie7 img {-ms-interpolation-mode: bicubic;}
+
+/* prevent BG image flicker upon hover 
+   (commented out as usage is rare, and the filter syntax messes with some pre-processors)
+.ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));}
+*/
+
+/* let's clear some floats */
+.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }  
+.clearfix:after { clear: both; }  
+.clearfix { zoom: 1; }  
+
+/* colors */
+
+$white: #fff;
+$black: #000;
+$primary: #03a9f4;
+$accent: #ffff00;
+$primary-light: #b3e5fc;
+$primary-dark: #0288d1;
+$accent-light: #ffff8d;
+$accent-dark: #ffd600;
+
+/* grid */
+
+.row {
+	display: block;
+	margin: 0 2.5em;
+	.row {
+		margin: 0 -1.5em;
+		.row {
+			margin: 0 -1.5em;
+		}
+	}
+}
+.column {
+	float: left;
+	padding: 0 1.5em;
+}
+.one-sixth {
+	width: 16.6667%;
+}
+.one-fifth {
+	width: 20%;
+}
+.one-quarter {
+	width: 25%;
+}
+.one-third {
+	width: 33.3333%;
+}
+.one-half {
+	width: 50%;
+}
+.two-thirds {
+	width: 66.6667%;
+}
+.three-quarters {
+	width: 75%;
+}	
+.full {
+	width: 100%;
+}
+.push-sixth {
+	margin-left: 16.6667%;
+}
+.push-quarter {
+	margin-left: 25%;
+}
+
+.push-twelfth {
+	margin-left: 8.3333%;
+}
+
+/* forms */
+
+form {
+	legend {
+		@include title;
+		margin-bottom: 2rem;
+	}
+	label {
+		display: block;
+		@include caption;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+	input, textarea {
+		display: block;
+		background: transparent;
+		padding: 0.5em 0;
+		border: 1px solid #e5e5e5;
+		border-width: 0 0 1px 0;
+		margin-bottom: 1em;
+		width: 100%;
+		height: 3em;
+		font-size: 0.875em;
+	}
+	input:focus, textarea:focus {
+		border-color: $primary;
+		outline: none;
+	}
+}
+
+form.inline-page-form {
+	input, select, button {
+		display: inline-block;
+		margin-right: 1em;
+		width: auto;
+		margin-bottom: 0;
+	}
+	input {
+		margin-top: -4px;
+	}
+	select {
+		border: 1px solid #e5e5e5;
+		border-width: 0 0 1px 0;
+		background: transparent;
+		padding: 0.5em 0;
+	}
+	select:focus {
+		outline: none;
+		border-color: $primary;
+	}
+	input:disabled {
+		color: lighten($black, 46%);
+		width: 3em;
+	}
+}
+
+/* buttons */
+
+.button {
+	font-size: 0.875em;
+	font-weight: 700;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 0.6em 1em;
+	border: none;
+	outline: none;
+	border-radius: 0.125rem;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.big-button {
+	font-size: 1em;
+}
+
+.flat-button {
+	color: lighten($black, 62%);
+	transition: color 0.3s;
+}
+
+.flat-button.primary {
+	color: $primary;
+}
+
+.flat-button.accent {
+	color: $accent;
+}
+
+.flat-button:hover {
+	color: $primary-dark;
+}
+
+.raised-button {
+	color: #fff;
+	background-color: lighten($black, 62%);
+	box-shadow: 0 1px 3px rgba(0,0,0,0.24), 0 1px 5px rgba(0,0,0,0.12);
+	transition: all 0.3s;
+}
+
+.raised-button.primary {
+	background-color: $primary;
+}
+
+.raised-button.accent {
+	background-color: $accent-dark;
+}
+
+.raised-button:hover {
+	background-color: $primary-dark;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.24), 0 2px 10px rgba(0,0,0,0.12);
+	color: #fff;
+}
+
+.action-button {
+	padding: 1.5em;
+	border-radius: 50%;
+	font-size: 1em;
+	i {
+		font-size: 1.5em;
+	}
+}
+
+/* cards */
+
+.card {
+	background: #fff;
+	margin: 1em -1em;
+	padding-bottom: 1rem;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.24), 0 1px 5px rgba(0,0,0,0.12);
+	border-radius: 0.125em;
+	.calendar {
+		padding: 1.1em 0 1em 0;
+		table {
+			width: 100%;
+			margin-bottom: 4.72em;
+			display: none;
+			tr {
+				td, th {
+					text-align: center;
+					font-size: 0.75em;
+					padding: 0.4em 0.5em;
+				}
+				.next-month, .last-month {
+					background: #eee;
+				}
+			}
+		}
+		table.current {
+			display: table;
+		}
+		.other-event {
+			background: $primary-light;
+			a {
+				color: #fff;
+				text-decoration: none;
+			}
+		}
+		.tertulia-event {
+			background: $primary;
+			a {
+				color: #fff;
+				text-decoration: none;
+			}
+		}
+	}
+	.media-area {
+		width: 100%;
+		height: 12.71875em;
+		overflow: hidden;
+		position: relative;
+		img {
+			min-width: 100%;
+		}
+		.caption {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			padding: 0.5em 1em;
+			background: rgba(0,0,0,0.74);
+			width: 100%;
+			h3 {
+				@include title;
+				color: #fff;
+				small {
+					font-size: 75%;
+					font-weight: 400;
+				}
+			}
+			h4 {
+				@include subhead;
+				color: rgba(255,255,255,0.8);
+			}
+		}
+	}
+	.description {
+		padding: 1em;
+		h3 {
+			@include title;
+			margin-bottom: 0.5em;
+		}
+	}
+	.event-description {
+		padding: 1em;
+		h4 {
+			@include subhead;
+		}
+		h3 {
+			@include title;
+			margin-bottom: 0.5em;
+		}
+	}
+	.action-area {
+		.raised-button:first-child {
+			margin-left: 1em;
+		}
+	}
+}
+
+.one-quarter .card {
+	.media-area {
+		height: 11.70125em;
+	}
+}
+
+/* lists */
+
+.list-item {
+	padding: 1em 0;
+	margin: 1em 0;
+	border-bottom: 1px solid #e5e5e5;
+	.left-thumb {
+		float: left;
+		width: 25%;
+		margin-right: 1em;
+	}
+	p {
+		font-size: 0.875em;
+		color: lighten($black, 46%);
+	}
+	h4 {
+		@include subhead;
+	}
+	.action-area {
+		padding: 1em 0;
+		.action-icons {
+			display: block;
+			text-align: right;
+			i {
+				margin-left: 1em;
+			}
+			a {
+				color: $primary;
+				transition: color 0.3s;
+			}
+			a:hover {
+				color: $primary-dark;
+			}
+		}
+	}
+}
+
+ul.unstyled {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-indent: none;
+}
+
+ul.link-list {
+	li {
+		margin-bottom: 0.5em;
+		color: $white;
+		a {
+			color: $white;
+			text-decoration: none;
+		}
+		a:hover {
+			color: $primary;
+		}
+	}
+}
+
+$black: #000;
+
+.text-center {
+	text-align: center !important;
+}
+
+.text-right {
+	text-align: right;
+}

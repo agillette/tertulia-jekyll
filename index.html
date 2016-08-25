@@ -1,0 +1,119 @@
+---
+layout: default
+---
+
+	<section id="home-slider" class="event-intro hide-phone" style="overflow:hidden;position:relative;">
+		<video autoplay loop style="position: absolute; z-index: -1; bottom: 0px; left: 0px; min-width: 100%; min-height: 100%;">
+			<source src="/img/vidloop.webm" type="video/webm">
+			<source src="/img/vidloop.ogv" type="video/ogg">
+			<source src="/img/vidloop.mp4" type="video/mp4">
+			Your browser does not support the video tag.    
+		</video>
+		<div class="row first-row clearfix">
+			<div class="column one-half push-quarter phone-full">
+				
+				<p id="second">"That corner spot? It's perfect for a concert."<br><em>- The New York Times</em><br><br>"The Tertulia Chamber Music series presents some of the best young rising stars."<br><em>- Opera News</em></p>
+			</div>
+		</div>
+		<div class="intro-title">
+			<div class="row clearfix">
+				<div class="column full">
+					{% for concert in site.concerts limit:1 offset:3 %}
+					<h2>Next Tertulia | {{ concert.title }}</h4>
+					<h3>{{ concert.concertDate | date: "%b %-d, %Y | %-I %p" }}</h3>
+					<a href="{{ concert.url }}" class="button raised-button action-button accent"><i class="fa fa-ticket"></i></a>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="home-intro">
+		<div class="row clearfix">
+			<div class="column two-thirds push-sixth phone-full">
+				<h2 class="section-title">Tertulia Chamber Music</h2>
+				<p class="large">Tertulia is a chamber music series that presents concerts in restaurants, in an atmosphere that combines lively conversation and dining with the opportunity to hear some of the greatest performers of our time.  Tertulias are formatted as dinner-concerts, with three performances separated by extended intermissions. A typical Tertulia presents 60 minutes of music, with at least 75 minutes set aside for eating, drinking, and socializing.</p>
+				<p class="large">During performances restaurant service is suspended and conversation stops.</p>
+				<div class="text-center" style="margin-top:2em;"><a class="button raised-button accent" href="/season.html">Explore Our Season</a></div>
+				<div class="text-center" style="margin-top:2em;"><iframe src="https://player.vimeo.com/video/131453295?color=ffffff&title=0&byline=0&portrait=0" width="800" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
+			</div>
+		</div>
+	</section>
+	<section id="events">
+		<h2 class="section-title">Looking Ahead</h2>
+		<div class="row clearfix">
+			{% for concert in site.concerts reversed limit:4 %}
+			<div class="column one-quarter phone-full">
+				<div class="card event-card">
+					<div class="media-area">
+						<img src="{{ concert.thumbnail }}" alt="{{ concert.title }}"><!--<img class="food-pic" src="{{ concert.food-pic }}">-->
+						<!--<div class="caption">
+							<h4>{{ concert.location }}</h4>
+							<h3>{{ concert.group }}</h3>
+						</div>-->
+					</div>
+					<div class="event-description">
+						<h3>{{ concert.group }}</h3>
+						<p>{{ concert.concertDate | date: "%b %-d, %Y" }} | {{ concert.location }}</p>
+					</div>
+					<div class="action-area">
+						<a class="button raised-button primary" href="{{ concert.url }}"><i class="fa fa-ticket"></i> Tickets & Info</a>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</section>
+	<!--<section id="home-season-link">
+		<div class="row clearfix">
+			<div class="column two-thirds push-sixth phone-full">
+				<p class="large">Our 2014-2015 season is characterized by some interesting copy. Maybe we could write about the composer in residence and/or the Harding's residency plan here. Just some interesting words to introduce the whole season.</p>
+				<div class="text-center" style="margin-top:2em;"><a class="button raised-button primary" href="/about.html"><i class="fa fa-calendar"></i>&nbsp;&nbsp; Full Calendar</a></div>
+			</div>
+		</div>
+	</section>-->
+	<section id="home-media">
+		<div class="row clearfix">
+			<div class="column one-sixth">
+				<a href="http://www.artsjournal.com/sandow/2014/04/from-julia-villagra-wooing-my-peers-1.html" target="_blank"><img src="/img/artsjournal.png" alt="" /></a>
+			</div>
+			<div class="column one-sixth">
+				<a href="http://www.musicalamerica.com/mablogs/?p=15715" target="_blank"><img src="/img/musicalamerica.png" alt="" /></a>
+			</div>
+			<div class="column one-sixth">
+				<a href="http://www.nytimes.com/2013/05/21/arts/music/that-corner-spot-its-perfect-for-a-concert.html" target="_blank"><img src="/img/nytimes.png" alt="" /></a>
+			</div>
+			<div class="column one-sixth">
+				<a href="http://www.timeout.com/newyork/classical/tertulia" target="_blank"><img src="/img/timeout.png" alt="" /></a>
+			</div>
+			<div class="column one-sixth">
+				<a href="http://www.wqxr.org/#!/story/315109-top-five-new-or-refreshed-concert-venues-fall-2013/" target="_blank"><img src="/img/wqxr.png" alt="" /></a>
+			</div>
+			<div class="column one-sixth">
+				<a href="http://www.operanews.com/Opera_News_Magazine/2015/6/Reviews/NEW_YORK_CITY__Jennifer_Johnson_Cano.html" target="_blank"><img src="/img/opera-news.png" alt="" /></a>
+			</div>
+		</div>
+	</section>
+
+<script>
+	$(document).ready(function(){
+		var wHeight = $(window).height();
+		var hHeight = $('#mainhead').height();
+		var hOffset = $('#mainhead').offset().top;
+		$(window).scroll(function(){
+			var wScroll = $(window).scrollTop();
+		});
+		$('.next-month-link').click(function(e){
+			e.preventDefault();
+			var currMo = $('.calendar .current');
+			currMo.removeClass('current');
+			currMo.next('table').addClass('current');
+		});
+		$('.prev-month-link').click(function(e){
+			e.preventDefault();
+			var currMo = $('.calendar .current');
+			currMo.removeClass('current');
+			currMo.prev('table').addClass('current');
+		});
+		
+	});
+</script>

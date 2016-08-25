@@ -1,0 +1,89 @@
+<footer id="mainfoot">
+					<div class="row clearfix">
+						<div class="column one-third hide-phone" id="footer-about">
+							<h3>About Tertulia</h3>
+							<p>Tertulia is a chamber music series that is designed to attract new and experienced audiences alike, or really, anyone who loves incredible food and music. Tertulia presents world-class chamber music concerts in restaurants around the city, with three performances separated by extended intermissions. The format and program is designed to enhance the social and culinary experience, but at all Tertulias, the music is paramount.</p>
+							<a href="../about.html" class="button raised-button primary">Read More</a>
+						</div>
+						<div class="column one-third hide-phone">
+							<h3>Quick Links</h3>
+							<ul class="unstyled link-list">
+								<li><a href="http://tertulianyc.org/about.html">About</a></li>
+								<li><a href="http://tertulianyc.org/support.html">Support</a></li>
+								<li><a href="http://tertulianyc.org/contact.html">Contact</a></li>
+								<li><a href="http://tertulianyc.org/season.html">Season & Tickets</a></li>
+								<li><a href="http://tertulianyc.org/musicians.html">Artists</a></li>
+								<li><a href="http://tertulianyc.org/restaurants.html">For Restaurants</a></li>
+								<li><a href="http://blog.tertulianyc.org/" target="_blank">Blog</a></li>
+							</ul>
+						</div>
+						<div class="column one-third phone-full">
+							<div id="mc_embed_signup">
+								<form action="//tertulianyc.us7.list-manage.com/subscribe/post?u=e659c37fcd8fbdee8ecf263b1&amp;id=a83118e20c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+									<fieldset>
+										<legend>Join Our Mailing List</legend>
+										<label for="mce-EMAIL">Email Address </label>
+										<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+										<div id="mce-responses" class="clear">
+											<div class="response" id="mce-error-response" style="display:none"></div>
+											<div class="response" id="mce-success-response" style="display:none"></div>
+										</div>
+										<div style="position: absolute; left: -5000px;"><input type="text" name="b_e659c37fcd8fbdee8ecf263b1_a83118e20c" tabindex="-1" value=""></div>
+										<button type="submit"id="mc-embedded-subscribe" class="button raised-button primary">Subscribe</button>
+									</fieldset
+								</form>
+							</div>
+						</div>
+					</div>
+				</footer>
+				<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+				<script src="http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/basic/jquery.qtip.min.js"></script>
+				<script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+        <script type="text/javascript">
+					$(document).ready(function(){
+						if(location.pathname != '/'){
+							$('#main-nav a[href*="/' + location.pathname.split("/")[1] + '"]').addClass('active');
+							console.log(location.pathname.split("/")[1]);
+						}
+						$('.card .media-area').each(function(){
+							var iWidth = $(this).width();
+							var fHeight = (iWidth * 2) / 3;
+							$(this).height(fHeight);
+						});
+						$('.board-row .card .media-area').each(function(){
+							var iWidth = $(this).width();
+							$(this).height(iWidth);
+						});
+						$('.artist .card .media-area, .card.event-card .media-area').each(function(){
+							var iWidth = $(this).width();
+							var fHeight = (iWidth * 2) / 3;
+							$(this).height(fHeight);
+						});
+						$('#mobile-menu').click(function(e){
+							e.preventDefault();
+							$('.menu-overlay').addClass('open');
+						});
+						$('.tooltip').qtip({
+							style: {
+								classes: 'qtip-light qtip-shadow'
+							},
+							position: {
+								my: 'top center',
+								at: 'bottom center'
+							}
+						});
+						$(window).resize(function(){
+							$('#home-slider').css({ minHeight: '100vh' });
+						});
+					});
+				</script>
+			<script>
+				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+				ga('create', 'UA-23067447-1', 'auto');
+				ga('send', 'pageview');
+
+			</script>

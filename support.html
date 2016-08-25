@@ -1,0 +1,61 @@
+---
+layout: default
+---
+	<section id="restaurants-content" class="page-basic no-header">
+		<div class="row clearfix">
+			<div class="column two-thirds">
+				<article class="page-section">
+					<h2 class="section-title">Support Tertulia</h2>
+						<p class="large">Ticket sales alone make up the majority of Tertulia's annual revenue, but we still need your help to balance our budget. And we're a 501(c)(3) non-profit, so your gift is tax-deductible.</p>
+						<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+							<input type="hidden" name="cmd" value="_s-xclick">
+							<input type="hidden" name="hosted_button_id" value="TNQHRPD4FWCS8">
+							<input type="image" style="width:auto;" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+							<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+						</form>
+						</p>
+
+					<h2 class="section-title">Become a Member</h2>
+					<p class="large">Take advantage of special events, open rehearsals, restaurant discounts and more by becoming a member. Specific benefits include:
+						<ul class="fa-ul">
+							<li><i class="fa-li fa fa-check"></i>Acknowledgement in every program for our 2015-2016 season</li>
+							<li><i class="fa-li fa fa-check"></i>A tax-deductible donation to Tertulia, Inc. a 501(c)(3)</li>
+							<li><i class="fa-li fa fa-check"></i>Special invitations to private events with Tertulia's Board of Directors, Artistic Directors, and Artists</li>
+							<li><i class="fa-li fa fa-check"></i>Season-long 10% discount at Harding's</li>
+							<li><i class="fa-li fa fa-check"></i>Priority access to pre-sale tickets</li>
+							<li><i class="fa-li fa fa-check"></i>Friends and family discounts to select Tertulias</li>
+							<li><i class="fa-li fa fa-check"></i>Exclusive invitations to open rehearsals</li>
+						</ul><br>	
+					</p>
+
+					<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+						<input type="hidden" name="cmd" value="_s-xclick">
+						<input type="hidden" name="hosted_button_id" value="G77Y8X2QLKBXG">
+						<input type="image" style="width:auto;" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+						<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+					</form>
+
+					<h2 class="section-title">Season Sponsorship</h2>
+					<p class="large">Tertulia is a fast-growing new chamber music series that is aimed at the city's younger generation of concert-goers. If you or your company is interested in sponsorship, please contact <a href="mailto:julia@tertulianyc">Julia Villagra.</a></p>
+				</article>
+			</div>
+			<div class="column one-third page-sidebar">
+				<div id="sidebar-concerts" style="font-size:80%;">
+					{% for concert in site.concerts reversed %}
+					<div class="row clearfix event-row">
+						<div class="column one-third event-date">
+							<img src="{{ concert.thumbnail }}" alt="" />
+						</div>
+						<div class="column two-thirds event-listing">
+							<!--<img src="{{ concert.thumbnail }}" alt="" />-->
+							<h3>{{ concert.group }}</h3>
+							<h4>{{ concert.location }} | {{ concert.concertDate | date: "%-I %p" }}</h4>
+							<h4>{{ concert.concertDate | date: "%b %-d, %Y" }}</h4>						
+							<a class="button raised-button primary" href="{{ concert.url }}"><i class="fa fa-ticket"></i> Tickets & Info</a>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>			
+		</div>
+	</section>

@@ -1,0 +1,24 @@
+---
+layout: default
+---
+  <section class="event-intro" id="decoda" style="background:url({{ page.feature }}) center center no-repeat;background-size:cover;">
+		<div class="intro-title">
+			<div class="row clearfix">
+				<div class="column full">
+					<h2>{{ page.concertDate | date: "%b %-d, %Y | %-I %p" }}</h2>
+					<h3>{{ page.location }} | {{ page.address }}</h3>
+					<a href="#tickets" class="button raised-button action-button accent"><i class="fa fa-ticket"></i></a>
+				</div>
+			</div>
+		</div>
+	</section>
+  <section id="event-program">
+    <h2 class="section-title">{{ page.title }}</h2>
+    <div class="row clearfix">
+      <div class="column two-thirds push-sixth">
+        <div class="row clearfix">
+        {{ content }}
+        </div>
+      </div>
+    </div>
+  </section>

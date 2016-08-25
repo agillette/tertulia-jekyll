@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+	<section class="page-intro hide-phone" id="musicians" style="padding:10em 0 5em 0;background:#fff;border-bottom:1px solid #ddd;background:url(../assets/img/musicians-bg-new.jpg) center center no-repeat;background-size:cover;">
+		<div class="row clearfix">
+			<div class="column two-thirds push-sixth">
+				<p class="large" style="color:#fff;text-shadow:0 0 1em #000">The most important ingredient of a Tertulia, and the most important ingredient of a chamber music performance, is the intimacy&mdash;the physical proximity of our artists and the audience. Not only do world-renowned musicians perform in the intimacy of our host restaurants, they share in the festive and convivial nature of the meal and evening as a whole.</p>
+			</div>
+		</div>
+	</section>
+	<section id="musician-results">
+		<h2 class="section-title">2016-2017 Artists</h2>
+		<div class="row clearfix">
+		{% for artist in site.artists %}
+			<div class="column one-quarter artist phone-full">
+				<div class="card">
+					<div class="media-area">
+						<img src="{{ artist.headshot }}" alt="{{ artist.title }}" />
+					</div>
+					<div class="description">
+						<h3>{{ artist.title }} <small>{{ artist.instrument }}</small></h3>
+					</div>
+					<a style="margin-top:0;" href="/concerts/{{ artist.tertulia }}.html" class="button flat-button primary">At Tertulia</a><a style="margin-top:0;" href="{{ artist.website }}" class="button flat-button">Artist's Website</a>
+				</div>
+			</div>
+		{% endfor %}
+		</div>
+	</section>
