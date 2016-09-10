@@ -18,7 +18,8 @@ layout: default
 		<div class="intro-title">
 			<div class="row clearfix">
 				<div class="column full">
-					{% for concert in site.concerts limit:1 offset:3 %}
+					{% assign sorted = (site.concerts | sort: 'concertDate') %}
+					{% for concert in sorted limit:1  %}
 					<h2>Next Tertulia | {{ concert.title }}</h4>
 					<h3>{{ concert.concertDate | date: "%b %-d, %Y | %-I %p" }}</h3>
 					<a href="{{ concert.url }}" class="button raised-button action-button accent"><i class="fa fa-ticket"></i></a>
@@ -41,7 +42,7 @@ layout: default
 	<section id="events">
 		<h2 class="section-title">Looking Ahead</h2>
 		<div class="row clearfix">
-			{% for concert in site.concerts reversed limit:4 %}
+			{% for concert in sorted limit:4 %}
 			<div class="column one-quarter phone-full">
 				<div class="card event-card">
 					<div class="media-area">
