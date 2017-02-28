@@ -19,7 +19,7 @@ layout: default
 			<div class="row clearfix">
 				<div class="column full">
 					{% assign sorted = (site.concerts | sort: 'concertDate') %}
-					{% for concert in sorted limit:1  %}
+					{% for concert in sorted limit:1 offset:3 %}
 					<h2>Next Tertulia | {{ concert.title }}</h4>
 					<h3>{{ concert.concertDate | date: "%b %-d, %Y | %-I %p" }}</h3>
 					<a href="{{ concert.url }}" class="button raised-button action-button accent"><i class="fa fa-ticket"></i></a>
